@@ -1,0 +1,14 @@
+%{
+#include<stdio.h>
+%}
+%%
+if|else|while|switch|int|for|char|return|main {printf("\n%s is a KEYWORD",yytext);}
+[a-zA-Z0-9]+ {printf("\n%s is an IDENTIFIER",yytext);}
+%%
+int yywrap(){}
+int main()
+{
+yyin=fopen("s1.txt","r");
+yylex();
+return 0;
+}
